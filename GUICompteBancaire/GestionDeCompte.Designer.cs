@@ -40,10 +40,13 @@
             textBoxNotes = new TextBox();
             statusStrip1 = new StatusStrip();
             labelSolde = new ToolStripStatusLabel();
-            panel1 = new Panel();
+            panelZoom = new Panel();
             supprimer = new Button();
+            buttonAjouter = new Button();
+            buttonValider = new Button();
+            labelErreur = new ToolStripStatusLabel();
             statusStrip1.SuspendLayout();
-            panel1.SuspendLayout();
+            panelZoom.SuspendLayout();
             SuspendLayout();
             // 
             // listeTransaction
@@ -129,7 +132,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { labelSolde });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { labelSolde, labelErreur });
             statusStrip1.Location = new Point(0, 562);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(930, 22);
@@ -141,18 +144,18 @@
             labelSolde.Name = "labelSolde";
             labelSolde.Size = new Size(0, 17);
             // 
-            // panel1
+            // panelZoom
             // 
-            panel1.Controls.Add(textBoxNotes);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pickerDate);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(textBoxMontant);
-            panel1.Location = new Point(429, 30);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(340, 376);
-            panel1.TabIndex = 8;
+            panelZoom.Controls.Add(textBoxNotes);
+            panelZoom.Controls.Add(label1);
+            panelZoom.Controls.Add(pickerDate);
+            panelZoom.Controls.Add(label3);
+            panelZoom.Controls.Add(label2);
+            panelZoom.Controls.Add(textBoxMontant);
+            panelZoom.Location = new Point(429, 30);
+            panelZoom.Name = "panelZoom";
+            panelZoom.Size = new Size(340, 376);
+            panelZoom.TabIndex = 8;
             // 
             // supprimer
             // 
@@ -164,21 +167,50 @@
             supprimer.UseVisualStyleBackColor = true;
             supprimer.Click += supprimer_Click;
             // 
+            // buttonAjouter
+            // 
+            buttonAjouter.Location = new Point(694, 450);
+            buttonAjouter.Name = "buttonAjouter";
+            buttonAjouter.Size = new Size(75, 23);
+            buttonAjouter.TabIndex = 10;
+            buttonAjouter.Text = "Ajouter";
+            buttonAjouter.UseVisualStyleBackColor = true;
+            buttonAjouter.Click += buttonAjouter_Click;
+            // 
+            // buttonValider
+            // 
+            buttonValider.Location = new Point(694, 450);
+            buttonValider.Name = "buttonValider";
+            buttonValider.Size = new Size(75, 23);
+            buttonValider.TabIndex = 11;
+            buttonValider.Text = "Ajouter";
+            buttonValider.UseVisualStyleBackColor = true;
+            buttonValider.Visible = false;
+            buttonValider.Click += buttonValider_Click;
+            // 
+            // labelErreur
+            // 
+            labelErreur.ForeColor = Color.Red;
+            labelErreur.Name = "labelErreur";
+            labelErreur.Size = new Size(0, 17);
+            // 
             // GestionDeCompte
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(930, 584);
+            Controls.Add(buttonValider);
+            Controls.Add(buttonAjouter);
             Controls.Add(supprimer);
-            Controls.Add(panel1);
+            Controls.Add(panelZoom);
             Controls.Add(statusStrip1);
             Controls.Add(listeTransaction);
             Name = "GestionDeCompte";
             Text = "GestionDeCompte";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelZoom.ResumeLayout(false);
+            panelZoom.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,7 +229,10 @@
         private TextBox textBoxNotes;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel labelSolde;
-        private Panel panel1;
+        private Panel panelZoom;
         private Button supprimer;
+        private Button buttonAjouter;
+        private Button buttonValider;
+        private ToolStripStatusLabel labelErreur;
     }
 }
